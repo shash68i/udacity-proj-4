@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
+var bodyParser = require('body-parser')
 var path = require('path')
 const express = require('express')
 var cors = require('cors')
@@ -15,6 +16,9 @@ const app = express()
 app.use(cors())
 app.use(express.static('dist'))
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 console.log(__dirname)
 
 app.get('/', function (req, res) {
@@ -28,18 +32,17 @@ app.listen(8081, function () {
 })
 
 
-app.get('/test', function (req, res) {
-    textapi.sentiment({
-        text: 'John is a very good football player',
-        mode: 'tweet'
-      }, function(error, response) {
-        if (error === null) {
-            console.log(response);
-            res.json(response);
-        }
-      });
-})
-
-// module.exports = function divd(a,b){
-//     return a/b;
-// };
+app.post('/test', function (req, res) {
+    console.log(req.body.formText)
+    textapi.sentiment({ 
+      'text': req.body.formText,
+       mode: 'tweet'
+     }, 
+        function(error, response) {
+          if(error === null) {
+              console.log(response);
+              res.send(response);
+          }
+      }
+  );
+});

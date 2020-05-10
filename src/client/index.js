@@ -11,7 +11,3 @@ export {
     checkForName,
     handleSubmit,
 }
-
-// module.exports = function modulo(a,b) {
-//     return a % b;
-// };

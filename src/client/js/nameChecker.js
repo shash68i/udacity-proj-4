@@ -15,7 +15,3 @@ function checkForName(inputText) {
 
 export { checkForName }
 
- 
-// module.exports = function subt(a,b) {
-//     return a - b;
-// };
