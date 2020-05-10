@@ -13,5 +13,10 @@ function checkForName(inputText) {
     }
 }
 
-export { checkForName }
+function add(a,b) {
+    return a + b;
+}
+
+
+export { checkForName, add }
 

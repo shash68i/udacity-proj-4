@@ -47,4 +47,8 @@ function handleSubmit(event) {
     })
 }
 
-export { handleSubmit }
+function subt(a,b) {
+    return a - b;
+}
+
+export { handleSubmit, subt }
