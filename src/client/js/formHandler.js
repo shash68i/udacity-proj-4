@@ -1,3 +1,14 @@
+const fetchData = (text) => (fetch('http://localhost:8081/test',{
+    method: "POST",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text })
+    }).then(res => res.json())
+);
+
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -6,15 +17,7 @@ function handleSubmit(event) {
     Client.checkForName(formText)
     console.log("::: Form Submitted :::")
 
-    fetch('http://localhost:8081/test',{
-    method: "POST",
-        credentials: "same-origin",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({"formText":formText})
-    })
-    .then(res => res.json())
+    fetchData(formText)
     .then(function(res) {
         console.log(res)
         // document.getElementById('results').innerHTML = `Polarity: ${res.polarity}<br>Subectivity: ${res.subjectivity}<br>Text: ${res.text}`;

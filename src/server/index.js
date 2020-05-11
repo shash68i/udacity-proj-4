@@ -46,7 +46,7 @@ app.post('/test', function (req, res) {
     console.log("If this is valid url : ",validateUrl(formData));
     if(validCall){
       textapi.sentiment({ 
-        'text': req.body.formText,
+        'text': req.body.text,
          mode: 'tweet'
       }, 
       function(error, response) {
