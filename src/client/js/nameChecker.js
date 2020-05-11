@@ -13,10 +13,5 @@ function checkForName(inputText) {
     }
 }
 
-function add(a,b) {
-    return a + b;
-}
-
-
-export { checkForName, add }
+export { checkForName }
 
